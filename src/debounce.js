@@ -13,8 +13,7 @@ const debounce = (func, delay = 1000) => {
   return (event) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      console.log('timer:', timer);
-      func(event);
+      func.apply(this, event);
     }, delay);
   };
 };
